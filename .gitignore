@@ -56,3 +56,5 @@ litellm_uuid.txt
 # Ignore Smart Connections folder
 .smart-connections
 .space
+/.makemd/fileCache.mdb
+/.makemd/superstate.mdb
