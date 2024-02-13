@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extension Options</title>
+  <link rel="stylesheet" href="options.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div class="grid"></div>
+<div class="lines"></div>
+<h1>
+  <span>DIGITAL</span>
+  <span>DIGITAL</span>
+</h1>
+<h2>Twin Safe</h2>
+
+<div class="container">
+  <div class="title">Extension Settings</div>
+  <div class="card">
+    <form id="optionsForm">
+      <div class="option">
+        <label class="option-label">
+          <input type="radio" name="behavior" value="popup" checked>
+          Less Noticeable Background Notification
+        </label>
+      </div>
+      <div class="option">
+        <label class="option-label">
+          <input type="radio" name="behavior" value="direct">
+          Open Tab Immediately in Foreground
+        </label>
+      </div>
+      <div class="option">
+        <label for="frequency" class="option-label">Popup Frequency:</label>
+        <select id="frequency" name="frequency" class="input-field">
+          <option value="1">Every minute</option>
+          <option value="60">Every hour</option>
+          <option value="1440" selected>Once a day</option>
+          <option value="10080">Once a week</option>
+        </select>
+      </div>
+      <div id="status" class="status"></div>
+    </form>
+  </div>
+</div>
+<script src="options.js"></script>
+</body>
+</html>
