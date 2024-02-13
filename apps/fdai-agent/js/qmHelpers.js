@@ -2185,7 +2185,7 @@ var qm = {
             qm.storage.setItem(qm.items.afterLoginGoToUrl, afterLoginGoToUrl);
         },
         sendToLogin: function(reason){
-	        url = qm.api.getQuantiModoUrl("/auth/login?afterLoginGoToUrl=" + encodeURIComponent(qm.urlHelper.getCurrentUrl()));
+	        var url = qm.api.getQuantiModoUrl("/auth/login?afterLoginGoToUrl=" + encodeURIComponent(qm.urlHelper.getCurrentUrl()));
 	        qm.urlHelper.goToUrl(url, reason);
         },
         setAfterLoginGoToUrlAndSendToLogin: function(reason){
@@ -9270,6 +9270,42 @@ var qm = {
                 qm.speech.talkRobot("OK. We'll skip that one.");
             }
         },
+      fdaiDemo: function(successHandler, errorHandler){
+        qm.speech.talkRobot(
+          "Good morning! I've noticed some changes in your data. How have you been feeling lately in terms of your depression, arthritis, and psoriasis?\n" +
+          "\n" +
+          "Hi there. It's been a tough week. My arthritis has been flaring up, and my psoriasis seems worse. My mood has been low, too.\n" +
+          "\n" +
+          "I'm sorry to hear that. Could you tell me more about your current diet, any treatments you're undergoing, and any supplements you're taking?\n" +
+          "\n" +
+          "Sure. I've been trying to eat healthier, lots of greens and gluten-free pizza. I'm on methotrexate for arthritis and psoriasis, and I've been using a topical steroid for psoriasis spots. For depression, I'm on sertraline. I also take a daily multivitamin and curcumin supplement.\n" +
+          "\n" +
+          "Thank you for sharing. Based on a comprehensive analysis of your health data, I have some personalized recommendations\n" +
+          "\n" +
+          "1. Diet Adjustment Increasing your intake of omega-3-rich foods like walnuts is great. Consider adding flaxseeds to your diet, which could help with both psoriasis and arthritis. Our data shows a 15% improvement in skin lesions and joint pain for individuals with similar profiles after 3 months of consistent intake.\n" +
+          "\n" +
+          "2. Treatment Optimization Given your current treatment plan, adding a low-dose oral retinoid might significantly benefit your psoriasis, with a 20% reduction in severity observed on average. However, this requires careful monitoring due to potential interactions with methotrexate.\n" +
+          "\n" +
+          "3. Supplement Review While your multivitamin and curcumin are beneficial, adding a vitamin D supplement could improve your mood and psoriasis symptoms. Data indicates a 10% mood improvement and a delay in psoriasis onset during winter months.\n" +
+          "\n" +
+          "To further refine these recommendations, could I use your browser to log in and scrape your diet data from the Instacart website, prescriptions from CVS website, and lab results from the Quest website.\n" +
+          "\n" +
+          "Sounds good. \n" +
+          "\n" +
+          "Excellent, I've used your browser to import your data. Also, there are several clinical trials that you might be eligible for, which are exploring new treatments for arthritis and psoriasis\n" +
+          "\n" +
+          "Trial A A new biologic for psoriasis showing a 30% improvement over existing treatments.\n" +
+          "Trial B An innovative therapy for arthritis aimed at reducing inflammation without the side effects of current medications.\n" +
+          "\n" +
+          "\n" +
+          "\n" +
+          "Participation could offer early access to promising treatments. If interested, medications will be delivered to your home.\n" +
+          "\n" +
+          "I'm interested in Trial A for psoriasis. \n" +
+          "\n" +
+          "Great choice! I've enrolled you in Trial A. Expect the medication and detailed participation instructions to arrive soon. Remember, I'm here to monitor your health and adjust your treatment plan in real time. Don't hesitate to reach out if you have any questions or need support.\n" +
+          "\n", successHandler, errorHandler, false, false);
+      },
         machinesOfLovingGrace: function(successHandler, errorHandler){
             qm.speech.talkRobot(
                 //"Hi!  I'm Dr. "+qm.appsManager.getDoctorRobotoAlias()+"!  " +

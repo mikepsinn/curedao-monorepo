@@ -86,7 +86,7 @@ angular.module('starter').controller('IntroCtrl', ["$scope", "$state", "$ionicSl
                 if(index > 0){
                     qm.splash.text.hide();
                 }
-                debugger;
+                //debugger;
                 readSlide();
                 setColorsFromSlide(getSlide());
             }
@@ -205,7 +205,8 @@ angular.module('starter').controller('IntroCtrl', ["$scope", "$state", "$ionicSl
                 // TODO: Implement play callback for after bliss-speech.mp3 ends
                 qm.music.play('sound/bliss-speech.mp3', 1);
             } else {
-                qm.speech.machinesOfLovingGrace(callback);
+              qm.speech.fdaiDemo(callback);
+                //qm.speech.machinesOfLovingGrace(callback);
                 playMusic();
             }
         }
