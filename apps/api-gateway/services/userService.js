@@ -7,9 +7,9 @@ export async function getUser(req, res) {
 module.exports.getUser = getUser;
 
 /**
- * Creates an FDAi user and returns the user ID.
+ * Get or create a DFDA user
  * @param {string} yourSystemUserId - The unique identifier for the user in the client's system.
- * @returns {Promise<string>} The FDAi user ID.
+ * @returns {Promise<string>} The DFDA user ID
  */
 export async function getOrCreateDfdaUser(yourSystemUserId) {
   const response = await fetch(`https://safe.dfda.earth/api/v1/user`, {
