@@ -1,12 +1,22 @@
+/**
+ * Background script for the browser extension.
+ * Handles extension installation, listens for events, and manages the extension's state and behavior.
+ */
+
 import { extractAndSaveAmazon } from './extractAndSaveAmazon.js';
 
 chrome.runtime.onInstalled.addListener(() => {
   setDailyAlarm(); // Set an alarm on installation
 });
 
+/**
+ * Sets a daily alarm for showing a tracking popup.
+ * Uses the frequency value from Chrome storage to determine the alarm interval.
+ * Defaults to 1440 minutes (once a day) if frequency is not set.
+ */
 function setDailyAlarm() {
   chrome.storage.sync.get("frequency", ({ frequency }) => {
-    const minutes = parseInt(frequency, 10) || 1440; // Default to 1440 minutes (once a day) if not set
+    const minutes = parseInt(frequency, 10) || 1440; // Default to 1440 minutes (once a day) if not set 
     chrome.alarms.create("trackingPopup", { periodInMinutes: minutes });
   });
 }
@@ -22,11 +32,16 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
 
 let popupId = null;
 
+/**
+ * Shows the tracking popup window.
+ * If a popup window is already open, it brings it into focus.
+ * Otherwise, it creates a new popup window.
+ */
 function showTrackingPopup() {
   debugger
   console.log('Time to show the daily popup!');
 
-  let origin = 'https://safe.dfda.earth';
+  let origin = 'https://safe.dfda.earth';  
   //origin = 'https://local.quantimo.do';
 
   if (popupId !== null) {
@@ -88,13 +103,17 @@ chrome.runtime.onStartup.addListener(() => {
   });
 });
 
+/**
+ * Redirects the user to the login page.
+ * Queries the currently active tab and opens the login URL in a new tab.
+ */
 function redirectToLogin() {
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     // Handle the case where there are no active tabs
     const loginUrl = `https://safe.dfda.earth/app/public`;
     chrome.tabs.create({ url: loginUrl });
 
-  });
+  });  
 }
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
@@ -155,6 +174,11 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   }
 });
 
+/**
+ * Parses a delivery date string into ISO format.
+ * @param {string} deliveryDate - The delivery date string to parse.
+ * @returns {string} The parsed date in ISO format.
+ */
 function parseDate(deliveryDate) {
   deliveryDate = deliveryDate.replace(/[^0-9]/g, "Delivered ");
   deliveryDate += ", " + new Date().getFullYear();
@@ -177,6 +201,10 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   }
 });
 
+/**
+ * Retrieves the QuantiModo access token from Chrome storage.
+ * @returns {Promise<string>} A promise that resolves to the access token if found, or rejects if not found.
+ */
 async function getQuantimodoAccessToken() {
   return new Promise((resolve, reject) => {
     chrome.storage.sync.get("quantimodoAccessToken", ({ quantimodoAccessToken }) => {
@@ -189,8 +217,10 @@ async function getQuantimodoAccessToken() {
   });
 }
 
-
-
+/**
+ * Checks if the user has a QuantiModo access token stored.
+ * @returns {Promise<boolean>} A promise that resolves to true if the token is found, false if not.
+ */
 function hasAccessToken() {
   return new Promise((resolve, reject) => {
     chrome.storage.sync.get(["quantimodoAccessToken"], ({ quantimodoAccessToken }) => {

@@ -1,3 +1,13 @@
+/**
+ * Contains functions for extracting and saving Amazon order data.
+ * Parses order details from the Amazon order history page and saves them as measurements.
+ */
+
+/**
+ * Shows a Chrome notification with the given title and message.
+ * @param {string} title - The title text for the notification.
+ * @param {string} message - The message body for the notification. 
+ */
 function showNotification(title, message) {
   chrome.notifications.create({
     type: 'basic',
@@ -7,6 +17,11 @@ function showNotification(title, message) {
   });
 }
 
+/**
+ * Extracts Amazon order data from the given HTML and saves it as measurements.
+ * @param {HTMLElement} [html=document] - The HTML element containing the Amazon order history. Defaults to the entire document.
+ * @returns {Promise<Array>} A promise that resolves to the array of extracted measurements.
+ */
 export async function extractAndSaveAmazon(html) {
   debugger
 
@@ -94,6 +109,18 @@ export async function extractAndSaveAmazon(html) {
   }
   return measurements;
 
+}
+
+/**
+ * Parses a delivery date string into ISO format.
+ * @param {string} deliveryDate - The delivery date string to parse.
+ * @returns {string} The parsed date in ISO format.
+ */
+function parseDate(deliveryDate) {
+  deliveryDate = deliveryDate.replace(/[^0-9]/g, "Delivered ");
+  deliveryDate += ", " + new Date().getFullYear();
+  // convert to ISO date
+  return new Date(deliveryDate).toISOString();
 }
 
 //module.exports = extractAndSaveAmazon;
