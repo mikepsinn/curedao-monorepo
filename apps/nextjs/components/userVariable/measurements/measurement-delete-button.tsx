@@ -18,6 +18,57 @@ import { toast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons"
 import { Measurement } from "@/app/types.ts";
 
+import { render, fireEvent, waitFor } from '@testing-library/react';
+import { MeasurementDeleteButton } from './measurement-delete-button';
+import { Measurement } from '@/app/types.ts';
+
+const mockMeasurement: Measurement = {
+  id: 1,
+  startAt: '2023-05-30T10:00:00Z',
+  note: 'Test measurement',
+  value: 5,
+  unitAbbreviatedName: 'count'
+};
+
+describe('MeasurementDeleteButton', () => {
+  it('deletes measurement successfully', async () => {
+    // Mock fetch to return successful response
+    global.fetch = jest.fn().mockResolvedValue({ ok: true });
+    
+    const { getByText } = render(<MeasurementDeleteButton measurement={mockMeasurement} />);
+    fireEvent.click(getByText('Delete'));
+
+    await waitFor(() => {
+      expect(global.fetch).toHaveBeenCalledWith(`/api/dfda/measurements?id=${mockMeasurement.id}`, { method: 'DELETE' });
+      expect(getByText('Your measurement has been deleted successfully.')).toBeInTheDocument();
+    });
+  });
+
+  it('handles undefined measurement ID', async () => {
+    console.error = jest.fn();
+
+    const { getByText } = render(<MeasurementDeleteButton measurement={{...mockMeasurement, id: undefined}} />);  
+    fireEvent.click(getByText('Delete'));
+
+    await waitFor(() => {
+      expect(console.error).toHaveBeenCalledWith('Measurement ID is not defined for deleteMeasurement');
+      expect(global.fetch).not.toHaveBeenCalled();
+    });
+  });
+
+  it('handles API error', async () => {
+    global.fetch = jest.fn().mockResolvedValue({ ok: false });
+
+    const { getByText } = render(<MeasurementDeleteButton measurement={mockMeasurement} />);
+    fireEvent.click(getByText('Delete'));
+
+    await waitFor(() => {
+      expect(getByText('Something went wrong.')).toBeInTheDocument();
+      expect(getByText('Your measurement was not deleted. Please try again.')).toBeInTheDocument();
+    });
+  });
+});
+
 interface MeasurementsDeleteButtonProps {
   measurement: Measurement
 }
