@@ -158,3 +158,85 @@ export default function Home() {
     </div>
   )
 }
+
+// Unit tests for image upload and processing flow
+describe('Home component', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('handleFileChange should update state correctly with a valid file', async () => {
+    const mockFile = new File(['test'], 'test.png', { type: 'image/png' });
+    const mockEvent = { target: { files: [mockFile] } };
+    const setImageMock = jest.fn();
+
+    await act(async () => {
+      await handleFileChange(mockEvent, setImageMock);
+    });
+
+    expect(setImageMock).toHaveBeenCalledWith('data:image/png;base64,dGVzdA==');
+  });
+
+  it('handleSubmit should send a POST request and update state on success', async () => {
+    const mockImage = 'validBase64Image';
+    const mockResponse = {
+      ok: true,
+      json: jest.fn().mockResolvedValueOnce({
+        success: true,
+        analysis: 'Mock analysis result',
+      }),
+    };
+    global.fetch = jest.fn().mockResolvedValueOnce(mockResponse);
+
+    const setIsLoadingMock = jest.fn();
+    const setOpenAIResponseMock = jest.fn();
+    const setNutritionDataMock = jest.fn();
+    const preventDefaultMock = jest.fn();
+
+    await act(async () => {
+      await handleSubmit({ preventDefault: preventDefaultMock }, mockImage, setIsLoadingMock, setOpenAIResponseMock, setNutritionDataMock);
+    });
+
+    expect(global.fetch).toHaveBeenCalledWith('/api/image2measurements', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ image: mockImage }),
+    });
+    expect(setIsLoadingMock).toHaveBeenCalledWith(true);
+    expect(setOpenAIResponseMock).toHaveBeenCalledWith('Mock analysis result');
+    expect(setNutritionDataMock).toHaveBeenCalledWith([]);
+    expect(setIsLoadingMock).toHaveBeenCalledWith(false);
+  });
+
+  it('handleSubmit should handle API error and update state accordingly', async () => {
+    const mockImage = 'validBase64Image';
+    const mockResponse = {
+      ok: false,
+      status: 500,
+    };
+    global.fetch = jest.fn().mockResolvedValueOnce(mockResponse);
+
+    const setIsLoadingMock = jest.fn();
+    const setOpenAIResponseMock = jest.fn();
+    const setNutritionDataMock = jest.fn();
+    const preventDefaultMock = jest.fn();
+    const alertMock = jest.spyOn(window, 'alert').mockImplementation(() => {});
+
+    await act(async () => {
+      await handleSubmit({ preventDefault: preventDefaultMock }, mockImage, setIsLoadingMock, setOpenAIResponseMock, setNutritionDataMock);
+    });
+
+    expect(global.fetch).toHaveBeenCalledWith('/api/image2measurements', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ image: mockImage }),
+    });
+    expect(setIsLoadingMock).toHaveBeenCalledWith(true);
+    expect(alertMock).toHaveBeenCalledWith('Failed to fetch data.');
+    expect(setIsLoadingMock).toHaveBeenCalledWith(false);
+  });
+});

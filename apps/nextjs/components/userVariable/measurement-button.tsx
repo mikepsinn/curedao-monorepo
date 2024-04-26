@@ -69,3 +69,132 @@ export function MeasurementButton({ userVariable, ...props }: MeasurementButtonP
     </>
   );
 }
+
+// Unit tests for MeasurementButton component
+describe('MeasurementButton component', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should open the measurement alert when the button is clicked', async () => {
+    const userVariableMock = {
+      id: '1',
+      name: 'Test Variable',
+      description: 'Test description',
+      createdAt: '2023-06-08T00:00:00.000Z',
+      imageUrl: 'test.jpg',
+      combinationOperation: 'SUM',
+      unitAbbreviatedName: 'mg',
+      variableCategoryName: 'Test Category',
+      lastValue: 100,
+      unitName: 'milligrams',
+      userId: '1',
+      variableId: '1',
+    };
+
+    const { getByRole } = render(<MeasurementButton userVariable={userVariableMock} />);
+    const button = getByRole('button');
+
+    await act(async () => {
+      fireEvent.click(button);
+    });
+
+    expect(button).toBeInTheDocument();
+    expect(getByText('Record a Measurement')).toBeInTheDocument();
+    expect(getByText(`This will record a ${userVariableMock.name} measurement.`)).toBeInTheDocument();
+  });
+
+  it('should submit the form and close the measurement alert on success', async () => {
+    const userVariableMock = {
+      id: '1',
+      name: 'Test Variable',
+      description: 'Test description',
+      createdAt: '2023-06-08T00:00:00.000Z',
+      imageUrl: 'test.jpg',
+      combinationOperation: 'SUM',
+      unitAbbreviatedName: 'mg',
+      variableCategoryName: 'Test Category',
+      lastValue: 100,
+      unitName: 'milligrams',
+      userId: '1',
+      variableId: '1',
+    };
+
+    const mockResponse = { ok: true };
+    global.fetch = jest.fn().mockResolvedValueOnce(mockResponse);
+
+    const { getByRole, getByLabelText, queryByText } = render(<MeasurementButton userVariable={userVariableMock} />);
+    const button = getByRole('button');
+
+    await act(async () => {
+      fireEvent.click(button);
+    });
+
+    const valueInput = getByLabelText('Value');
+    const submitButton = getByRole('button', { name: 'Add Measurement' });
+
+    await act(async () => {
+      fireEvent.change(valueInput, { target: { value: '200' } });
+      fireEvent.click(submitButton);
+    });
+
+    expect(global.fetch).toHaveBeenCalledWith('/api/measurements', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        userVariableId: userVariableMock.id,
+        value: 200,
+      }),
+    });
+    expect(queryByText('Record a Measurement')).not.toBeInTheDocument();
+  });
+
+  it('should handle form submission error and display an error message', async () => {
+    const userVariableMock = {
+      id: '1',
+      name: 'Test Variable',
+      description: 'Test description',
+      createdAt: '2023-06-08T00:00:00.000Z',
+      imageUrl: 'test.jpg',
+      combinationOperation: 'SUM',
+      unitAbbreviatedName: 'mg',
+      variableCategoryName: 'Test Category',
+      lastValue: 100,
+      unitName: 'milligrams',
+      userId: '1',
+      variableId: '1',
+    };
+
+    const mockResponse = { ok: false };
+    global.fetch = jest.fn().mockResolvedValueOnce(mockResponse);
+
+    const { getByRole, getByLabelText } = render(<MeasurementButton userVariable={userVariableMock} />);
+    const button = getByRole('button');
+
+    await act(async () => {
+      fireEvent.click(button);
+    });
+
+    const valueInput = getByLabelText('Value');
+    const submitButton = getByRole('button', { name: 'Add Measurement' });
+
+    await act(async () => {
+      fireEvent.change(valueInput, { target: { value: '200' } });
+      fireEvent.click(submitButton);
+    });
+
+    expect(global.fetch).toHaveBeenCalledWith('/api/measurements', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        userVariableId: userVariableMock.id,
+        value: 200,
+      }),
+    });
+    expect(getByText('Something went wrong. Please try again.')).toBeInTheDocument();
+  });
+});

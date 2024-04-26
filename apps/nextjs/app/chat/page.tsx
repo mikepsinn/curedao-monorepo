@@ -119,3 +119,89 @@ const App: React.FC = () => {
 }
 
 export default App;
+
+// Unit tests for file handling logic
+describe('App component', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('handleFileChange should update state correctly with a valid file', async () => {
+    const mockFile = new File(['test'], 'test.png', { type: 'image/png' });
+    const mockBase64 = 'mockBase64String';
+    
+    jest.spyOn(URL, 'createObjectURL').mockReturnValueOnce('mockUrl');
+    jest.spyOn(global, 'convertFileToBase64').mockResolvedValueOnce(mockBase64);
+
+    const setFileMock = jest.fn();
+    const setPreviewMock = jest.fn();
+    const setStatusMessageMock = jest.fn();
+    const setUploadProgressMock = jest.fn();
+    const setBase64ImageMock = jest.fn();
+
+    await act(async () => {
+      await handleFileChange(mockFile);
+    });
+
+    expect(setFileMock).toHaveBeenCalledWith(mockFile);
+    expect(setPreviewMock).toHaveBeenCalledWith('mockUrl');
+    expect(setStatusMessageMock).toHaveBeenCalledWith('Image selected. Click "Analyze Image" to proceed.');
+    expect(setUploadProgressMock).toHaveBeenCalledWith(0);
+    expect(setBase64ImageMock).toHaveBeenCalledWith(mockBase64);
+  });
+
+  it('handleCapture should call handleFileChange with the captured Blob', async () => {
+    const mockBlob = new Blob(['test'], { type: 'image/png' });
+    const mockFile = new File([mockBlob], 'captured_image.png', { type: 'image/png' });
+    const handleFileChangeMock = jest.fn();
+
+    await act(async () => {
+      await handleCapture(mockBlob);
+    });
+
+    expect(handleFileChangeMock).toHaveBeenCalledWith(mockFile);
+  });
+});
+
+// Unit tests for file handling logic
+describe('App component', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('handleFileChange should update state correctly with a valid file', async () => {
+    const mockFile = new File(['test'], 'test.png', { type: 'image/png' });
+    const mockBase64 = 'mockBase64String';
+    
+    jest.spyOn(URL, 'createObjectURL').mockReturnValueOnce('mockUrl');
+    jest.spyOn(global, 'convertFileToBase64').mockResolvedValueOnce(mockBase64);
+
+    const setFileMock = jest.fn();
+    const setPreviewMock = jest.fn();
+    const setStatusMessageMock = jest.fn();
+    const setUploadProgressMock = jest.fn();
+    const setBase64ImageMock = jest.fn();
+
+    await act(async () => {
+      await handleFileChange(mockFile, setFileMock, setPreviewMock, setStatusMessageMock, setUploadProgressMock, setBase64ImageMock);
+    });
+
+    expect(setFileMock).toHaveBeenCalledWith(mockFile);
+    expect(setPreviewMock).toHaveBeenCalledWith('mockUrl');
+    expect(setStatusMessageMock).toHaveBeenCalledWith('Image selected. Click "Analyze Image" to proceed.');
+    expect(setUploadProgressMock).toHaveBeenCalledWith(0);
+    expect(setBase64ImageMock).toHaveBeenCalledWith(mockBase64);
+  });
+
+  it('handleCapture should call handleFileChange with the captured Blob', async () => {
+    const mockBlob = new Blob(['test'], { type: 'image/png' });
+    const mockFile = new File([mockBlob], 'captured_image.png', { type: 'image/png' });
+    const handleFileChangeMock = jest.fn();
+
+    await act(async () => {
+      await handleCapture(mockBlob, handleFileChangeMock);
+    });
+
+    expect(handleFileChangeMock).toHaveBeenCalledWith(mockFile);
+  });
+});

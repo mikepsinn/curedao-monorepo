@@ -123,3 +123,91 @@ export function UserVariableEditForm({
     </form>
   )
 }
+
+// Unit tests for UserVariableEditForm component
+describe('UserVariableEditForm component', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should render the form with the user variable data', () => {
+    const userVariableMock = {
+      id: '1',
+      name: 'Test Variable',
+      description: 'Test description',
+    };
+
+    const { getByLabelText, getByText } = render(<UserVariableEditForm userVariable={userVariableMock} />);
+
+    expect(getByText('Test Variable')).toBeInTheDocument();
+    expect(getByText('Test description')).toBeInTheDocument();
+    expect(getByLabelText('Name')).toHaveValue('Test Variable');
+  });
+
+  it('should update the user variable and navigate back on successful form submission', async () => {
+    const userVariableMock = {
+      id: '1',
+      name: 'Test Variable',
+      description: 'Test description',
+    };
+
+    const mockResponse = { ok: true };
+    global.fetch = jest.fn().mockResolvedValueOnce(mockResponse);
+
+    const backMock = jest.fn();
+    const refreshMock = jest.fn();
+    jest.spyOn(require('next/navigation'), 'useRouter').mockImplementation(() => ({
+      back: backMock,
+      refresh: refreshMock,
+    }));
+
+    const { getByLabelText, getByRole } = render(<UserVariableEditForm userVariable={userVariableMock} />);
+    const nameInput = getByLabelText('Name');
+    const submitButton = getByRole('button', { name: 'Save changes' });
+
+    await act(async () => {
+      fireEvent.change(nameInput, { target: { value: 'Updated Variable' } });
+      fireEvent.click(submitButton);
+    });
+
+    expect(global.fetch).toHaveBeenCalledWith(`/api/userVariables/${userVariableMock.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name: 'Updated Variable' }),
+    });
+    expect(backMock).toHaveBeenCalled();
+    expect(refreshMock).toHaveBeenCalled();
+  });
+
+  it('should display an error message on form submission failure', async () => {
+    const userVariableMock = {
+      id: '1',
+      name: 'Test Variable',
+      description: 'Test description',
+    };
+
+    const mockResponse = { ok: false };
+    global.fetch = jest.fn().mockResolvedValueOnce(mockResponse);
+
+    const { getByLabelText, getByRole } = render(<UserVariableEditForm userVariable={userVariableMock} />);
+    const nameInput = getByLabelText('Name');
+    const submitButton = getByRole('button', { name: 'Save changes' });
+
+    await act(async () => {
+      fireEvent.change(nameInput, { target: { value: 'Updated Variable' } });
+      fireEvent.click(submitButton);
+    });
+
+    expect(global.fetch).toHaveBeenCalledWith(`/api/userVariables/${userVariableMock.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name: 'Updated Variable' }),
+    });
+    expect(getByText('Something went wrong.')).toBeInTheDocument();
+    expect(getByText('Your userVariable was not updated. Please try again.')).toBeInTheDocument();
+  });
+});
