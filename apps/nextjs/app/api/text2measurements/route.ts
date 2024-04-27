@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { text2measurements } from "@/lib/text2measurements";
 
-export async function POST(request: NextRequest) {
+export function POST(request: NextRequest) {
   let { statement, localDateTime, text } = await request.json();
   statement = statement || text;
 
