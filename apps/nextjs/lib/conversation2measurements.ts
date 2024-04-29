@@ -1,6 +1,8 @@
 import { Measurement } from "@/types/models/Measurement";
 import {textCompletion} from "@/lib/llm";
 
+// Tests in conversation2measurements.test.ts
+
 // IMPORTANT! Set the runtime to edge
 export const runtime = 'edge';
 
