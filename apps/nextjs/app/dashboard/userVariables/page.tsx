@@ -35,7 +35,7 @@ export default async function UserVariablesPage() {
       <DashboardHeader heading="Your Variables" text="Manage your treatments, symptoms, and other variables.">
         <UserVariableAddButton />
       </DashboardHeader>
-      <GenericVariableList user={user} searchParams={searchParams} />
+      <GenericVariableList user={user} searchParams={searchParams} data-testid="variable-list" />
     </Shell>
   )
 }
