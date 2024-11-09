@@ -68,11 +68,33 @@ The dFDA shall:
 
 ### 3.2 Universal Data Collection
 Providers must report:
-- Anonymized patient conditions.
-- Treatments used and health outcomes.
-- Adverse events and treatment costs.
-- Quality of life measures and care locations.
-- Access methods.
+- Patient conditions using standardized ICD-11 codes and SNOMED CT terminology
+- Treatments administered, including:
+  - Drug name, dosage, frequency, and duration
+  - Treatment protocols followed
+  - Combination therapies used
+- Health outcomes measured by:
+  - Clinical measurements and lab results
+  - Standardized outcome scales (e.g., PROMIS measures)
+  - Survival rates and disease progression metrics
+- Adverse events categorized by:
+  - Severity (using CTCAE v5.0 criteria)
+  - Causality assessment
+  - Resolution and interventions required
+- Treatment costs including:
+  - Direct medication costs
+  - Administration costs
+  - Associated care costs
+- Quality of life measures using validated tools:
+  - SF-36 Health Survey
+  - EQ-5D questionnaire
+  - Disease-specific QoL instruments
+- Care delivery methods including:
+  - In-person clinical visits
+  - Telemedicine consultations
+  - Home healthcare services
+  - Emergency or urgent care utilization
+  - Specialized treatment facilities
 
 ### 3.3 Inclusive Design
 The dFDA must support:
@@ -82,18 +104,58 @@ The dFDA must support:
 - Multiple languages and accessibility features.
 
 ### 3.4 Public Access
-- Publicly available de-identified data.
-- Standard API for analysis.
-- Mobile apps, cost comparison tools.
-- Research access, subgroup analysis tools.
-- Real-time updates and global availability.
+- De-identified data available through:
+  - Public web portal
+  - Downloadable datasets
+  - Interactive visualization tools
+- RESTful API access with:
+  - OAuth 2.0 authentication
+  - Rate limiting controls
+  - Comprehensive documentation
+  - Versioning support
+  - Data validation endpoints
+- Mobile applications supporting:
+  - iOS and Android platforms
+  - Offline data collection
+  - Push notifications
+  - Accessibility features
+- Cost comparison tools featuring:
+  - Treatment price transparency
+  - Insurance coverage information
+  - Alternative therapy comparisons
+  - Regional cost variations
+- Research access tools including:
+  - Statistical analysis packages
+  - Machine learning capabilities
+  - Cohort selection tools
+  - Custom query builders
 
 ### 3.5 Privacy Protection
-- Standard de-identification and secure handling.
-- Patient consent for tracking.
-- Right to access personal data.
-- Local data storage and distributed systems.
-- End-to-end encryption and user control.
+- De-identification standards following:
+  - HIPAA Safe Harbor method
+  - Expert Determination method
+  - Additional protections for rare conditions
+- Patient consent requirements:
+  - Granular data sharing options
+  - Revocation mechanisms
+  - Regular consent renewal
+  - Minor and dependent provisions
+- Personal data access rights including:
+  - Complete medical records
+  - Data export capabilities
+  - Audit trail access
+  - Correction mechanisms
+- Distributed data architecture:
+  - Local node requirements
+  - Synchronization protocols
+  - Backup procedures
+  - Disaster recovery plans
+- Security measures including:
+  - End-to-end AES-256 encryption
+  - Multi-factor authentication
+  - Access logging
+  - Intrusion detection
+  - Regular security audits
 
 ### 3.1.1 FDAi: Autonomous AI Agent
 
@@ -150,10 +212,16 @@ Treatments must:
    - FDA-approved under this Act.
    - Registered with the dFDA.
 2. **Demonstrated Impact:**
-   - Evidence of preventing disability or reducing costs.
-   - Address serious or life-threatening conditions with public health significance.
-3. **Data Reporting:**
-   - Maintain ongoing data collection and the dFDA reporting.
+   - Evidence of preventing disability or reducing costs through:
+     - Randomized controlled trials
+     - Real-world evidence studies
+     - Health economic analyses
+   - Public health significance determined by:
+     - Disease prevalence (>1 in 10,000 population)
+     - Mortality rate impact
+     - Quality of life improvement
+     - Economic burden reduction
+     - Healthcare resource utilization
 
 ### 8.4 Calculation of Rewards
 #### a) Cost Savings Assessment
