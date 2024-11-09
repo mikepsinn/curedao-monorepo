@@ -4,15 +4,9 @@
   "description": "Convert markdown files to Mintlify-compatible MDX with image processing",
   "main": "dist/scripts/convert-to-mintlify.js",
   "scripts": {
-    "convert": "ts-node scripts/convert-to-mintlify.ts",
-    "convert:watch": "ts-node-dev --respawn scripts/convert-to-mintlify.ts",
-    "build": "tsc",
-    "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix",
-    "test": "jest",
-    "prepare": "husky install",
-    "type-check": "tsc --noEmit"
+    "convert": "node --loader ts-node/esm scripts/convert-to-mintlify.ts"
   },
+  "type": "module",
   "keywords": [
     "markdown",
     "mintlify",

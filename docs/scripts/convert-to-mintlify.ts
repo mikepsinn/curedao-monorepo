@@ -1,14 +1,14 @@
-import { OpenAI } from 'openai'
-import * as fs from 'fs/promises'
-import * as path from 'path'
-import * as yaml from 'js-yaml'
-import dotenv from 'dotenv'
+import { OpenAI } from 'openai';
+import * as fs from 'fs/promises';
+import * as path from 'path';
+import * as yaml from 'js-yaml';
+import * as dotenv from 'dotenv';
 
-dotenv.config()
+dotenv.config();
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
-})
+});
 
 // Add constants for directory structure
 const MINTLIFY_ROOT = 'mintlify' // Root directory for Mintlify docs
@@ -244,17 +244,24 @@ async function convertToMintlify(filePath: string): Promise<void> {
 
     // Copy images and update paths
     const imageRegex = /!\[.*?\]\((.*?)\)/g; // Regex to find image paths
-    markdown = markdown.replace(imageRegex, async (match, imgPath) => {
+    const imgPaths: string[] = []; // Array to hold image paths
+    markdown = markdown.replace(imageRegex, (match: string, imgPath: string) => {
+      imgPaths.push(imgPath); // Collect image paths
+      return match; // Return the original match
+    });
+
+    // Process image paths asynchronously
+    await Promise.all(imgPaths.map(async (imgPath) => {
       const absoluteImgPath = path.resolve(path.dirname(filePath), imgPath);
       const imgFileName = path.basename(imgPath);
       const newImgPath = path.join(MINTLIFY_IMAGES, imgFileName);
 
       // Copy the image to the Mintlify images folder
       await fs.copyFile(absoluteImgPath, newImgPath);
-
-      // Return the updated markdown image path
-      return `![${imgFileName}](/images/${imgFileName})`;
-    });
+      
+      // Update the markdown image path
+      markdown = markdown.replace(`![${imgFileName}](${imgPath})`, `![${imgFileName}](/images/${imgFileName})`);
+    }));
 
     // Use OpenAI to convert the content
     const completion = await openai.chat.completions.create({
@@ -265,7 +272,9 @@ async function convertToMintlify(filePath: string): Promise<void> {
           content: `You are a documentation specialist who converts markdown files to Mintlify-compatible format. 
           ${MINTLIFY_DOCS}
           Please convert the following markdown content to Mintlify format, preserving the essential information 
-          while optimizing for Mintlify's features and components.`
+          while optimizing for Mintlify's features and components. 
+          Do not include any language-specific code blocks or any code formatting in the final output. 
+          The output should be plain text formatted for Mintlify without any additional code language indicators.`
         },
         {
           role: "user",
