@@ -133,13 +133,9 @@ The dFDA must support:
 ### 3.5 Privacy Protection
 - De-identification standards following:
   - HIPAA Safe Harbor method
-  - Expert Determination method
-  - Additional protections for rare conditions
 - Patient consent requirements:
   - Granular data sharing options
   - Revocation mechanisms
-  - Regular consent renewal
-  - Minor and dependent provisions
 - Personal data access rights including:
   - Complete medical records
   - Data export capabilities
