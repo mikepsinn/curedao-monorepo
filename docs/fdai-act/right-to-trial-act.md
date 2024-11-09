@@ -7,22 +7,22 @@ Cited as the "Right to Trial Act of 2024."
 
 ### 1.2 Core Findings
 1. **Current System Failures**
-   - Delayed treatment access due to regulations.
-   - Clinical trials exclude most patients.
-   - Artificial restrictions limit access and scientific value.
-   - High regulatory costs increase drug prices.
-   - Patients suffer delays in approvals.
-   - Global innovation contrasts local access restrictions.
-   - Companies prioritize expensive over affordable treatments.
-   - Prevention undervalued compared to treatment.
-   - Real-world outcomes neglected.
+   - FDA approval process delays access to life-saving treatments by 7-12 years on average.
+   - 97% of patients are excluded from clinical trials due to strict eligibility criteria.
+   - Geographic restrictions force patients to travel hundreds of miles to trial sites.
+   - $2.6B average cost of drug development drives 10-100x markup in consumer prices.
+   - Terminal patients wait 4+ years for breakthrough therapy approvals.
+   - Treatments available in Europe/Asia take 3-5 additional years for US approval.
+   - Companies invest 80% of R&D in drugs costing >$100k/year vs. affordable alternatives.
+   - Only 5% of healthcare spending goes to preventive care despite 3x return on investment.
+   - Less than 10% of approved drugs have comprehensive real-world outcome data.
 2. **Solution Framework**
-   - Grant universal participation in decentralized trials.
-   - Replace restricted trials with inclusive public outcome tracking.
-   - Ensure treatment access wherever patients are.
-   - Reward outcomes and cost reductions.
-   - Learn from all patient experiences.
-   - Modernize FDA's role.
+   - Enable all patients to participate in decentralized trials from home, hospitals, or any care setting.
+   - Transform clinical trials into transparent, real-world data collection that includes all willing patients.
+   - Guarantee treatment access across geographic locations through telemedicine and home delivery.
+   - Create financial incentives for treatments that improve outcomes and reduce healthcare costs.
+   - Build a comprehensive database of patient experiences to inform treatment decisions.
+   - Refocus FDA on safety verification, data quality, and public health protection rather than access restriction.
 3. **Definition of dFDA**
    - The **Decentralized FDA (dFDA)** is established to automate decentralized clinical research, store and analyze data, and publish aggregated and anonymized outcome labels quantifying all positive and negative effects of foods and drugs.
 
