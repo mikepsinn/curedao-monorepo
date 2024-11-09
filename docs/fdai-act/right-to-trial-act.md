@@ -130,29 +130,6 @@ Encourage bulk purchasing to lower costs via economies of scale.
 #### c) Efficiency Grants
 Grant investments in technology and processes that reduce production costs without compromising quality.
 
-## Section 5. Safety Standards, Accountability, and Fraud Prevention
-
-### 5.1 Minimum Safety Requirements
-Treatments must:
-- Complete Phase 1 trials demonstrating safety.
-- Adhere to Good Manufacturing Practices (GMP).
-- Provide accurate labeling of contents, dosages, and instructions.
-- Engage in ongoing safety and effectiveness monitoring via TOD.
-
-### 5.2 Adverse Event Monitoring
-Establish systems for:
-- **Reporting:** Direct reporting of adverse events by providers and patients.
-- **Analysis:** Rapid evaluation to identify safety concerns.
-- **Action:** Implement modifications or withdrawals based on data.
-
-### 5.3 Accountability and Liability
-**Fraud Prevention:**
-- Enforce penalties for data falsification, mislabeling, and non-compliance.
-**Liability Framework:**
-- **Protections:** Limited liability for providers and manufacturers if risks are disclosed and no negligence.
-- **Exceptions:** Liability for fraud, misconduct, or gross negligence.
-- **Compliance:** Protections apply only if reporting and safety obligations are met.
-
 ## Section 6. Insurance Coverage and Cost Transparency
 
 ### 6.1 Insurance Options
@@ -269,11 +246,10 @@ Solicit feedback from providers, patients, and stakeholders to improve the progr
 2. **Section 2:** Defines universal patient rights and provider access, ensuring treatment availability and choice.
 3. **Section 3:** Creates the Treatment Outcomes Database for comprehensive, real-world data collection and public access.
 4. **Section 4:** Enhances global access and competition through international cooperation and transparent pricing.
-5. **Section 5:** Sets stringent safety standards and accountability measures to prevent fraud and ensure treatment safety.
-6. **Section 6:** Expands insurance coverage for experimental treatments and mandates cost transparency.
-7. **Section 7:** Outlines implementation strategies, including oversight bodies, funding, and stakeholder engagement.
-8. **Section 8:** Maintains Act enforceability despite invalid provisions.
-9. **Section 9:** Introduces the Savings Sharing Program to reward cost-saving treatments, ensuring economic and public health benefits.
+5. **Section 6:** Expands insurance coverage for experimental treatments and mandates cost transparency.
+6. **Section 7:** Outlines implementation strategies, including oversight bodies, funding, and stakeholder engagement.
+7. **Section 8:** Maintains Act enforceability despite invalid provisions.
+8. **Section 9:** Introduces the Savings Sharing Program to reward cost-saving treatments, ensuring economic and public health benefits.
 
 ## Key Benefits
 1. **Reduced Financial Barriers:** Eliminates regulatory user fees, lowering costs for manufacturers.
