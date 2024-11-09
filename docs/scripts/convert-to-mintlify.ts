@@ -22,7 +22,7 @@ Mintlify Documentation Format Guide:
 
 1. FRONTMATTER
 Required metadata at the top of each MDX file:
-\`\`\`yaml
+
 ---
 title: "Page Title"
 description: "Page description for SEO"
@@ -30,7 +30,7 @@ sidebarTitle: "Sidebar title (optional)"
 api: "POST /v1/endpoint" # For API endpoints
 openapi: "https://path-to-spec.json" # For OpenAPI specs
 ---
-\`\`\`
+
 
 2. COMPONENTS
 
@@ -225,20 +225,32 @@ async function initializeMintlifyStructure(): Promise<void> {
   }
 }
 
-async function convertToMintlify(filePath: string): Promise<void> {
+async function convertToMintlify(filePath: string): Promise<{ title: string; description: string; path: string }> {
   try {
+    // Check if the file is a markdown file (.md)
+    if (!filePath.endsWith('.md')) {
+      console.log(`Skipping non-markdown file: ${filePath}`);
+      return { title: '', description: '', path: filePath }; // Skip if not .md
+    }
+
+    // Skip files in the mintlify and api-docs folders
+    if (filePath.includes('/mintlify/') || filePath.includes('/api-docs/')) {
+      console.log(`Skipping file in excluded folder: ${filePath}`);
+      return { title: '', description: '', path: filePath }; // Skip if in excluded folders
+    }
+
     // Read the markdown file
-    const content = await fs.readFile(filePath, 'utf-8')
+    const content = await fs.readFile(filePath, 'utf-8');
     
     // Extract front matter if it exists
-    let frontMatter: FrontMatter = {}
-    let markdown = content
+    let frontMatter: FrontMatter = {};
+    let markdown = content;
     
     if (content.startsWith('---')) {
-      const matches = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/)
+      const matches = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
       if (matches) {
-        frontMatter = yaml.load(matches[1]) as FrontMatter
-        markdown = matches[2]
+        frontMatter = yaml.load(matches[1]) as FrontMatter;
+        markdown = matches[2]; // Remove front matter from markdown
       }
     }
 
@@ -252,18 +264,37 @@ async function convertToMintlify(filePath: string): Promise<void> {
 
     // Process image paths asynchronously
     await Promise.all(imgPaths.map(async (imgPath) => {
+      // Check if the image path is external
+      if (imgPath.startsWith('http://') || imgPath.startsWith('https://')) {
+        console.log(`Skipping external image: ${imgPath}`);
+        return; // Skip external images
+      }
+
+      // Sanitize the image path
+      imgPath = imgPath.replace(/>$/, '').trim(); // Remove any trailing '>' and trim whitespace
+
       const absoluteImgPath = path.resolve(path.dirname(filePath), imgPath);
       const imgFileName = path.basename(imgPath);
       const newImgPath = path.join(MINTLIFY_IMAGES, imgFileName);
 
-      // Copy the image to the Mintlify images folder
-      await fs.copyFile(absoluteImgPath, newImgPath);
-      
-      // Update the markdown image path
-      markdown = markdown.replace(`![${imgFileName}](${imgPath})`, `![${imgFileName}](/images/${imgFileName})`);
+      // Check if the image file exists before attempting to copy
+      try {
+        await fs.access(absoluteImgPath); // Check if the file exists
+        await fs.copyFile(absoluteImgPath, newImgPath);
+        // Update the markdown image path
+        markdown = markdown.replace(`![${imgFileName}](${imgPath})`, `![${imgFileName}](/images/${imgFileName})`);
+      } catch (error) {
+        if (error.code === 'ENOENT') {
+          console.error(`❌ Error: The file does not exist at the specified path: ${absoluteImgPath}`);
+        } else if (error.code === 'EACCES') {
+          console.error(`❌ Error: Permission denied when accessing the file: ${absoluteImgPath}`);
+        } else {
+          console.error(`❌ Error copying image ${imgPath}:`, error);
+        }
+      }
     }));
 
-    // Use OpenAI to convert the content
+    // Use OpenAI to convert the content without front matter
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
@@ -274,42 +305,43 @@ async function convertToMintlify(filePath: string): Promise<void> {
           Please convert the following markdown content to Mintlify format, preserving the essential information 
           while optimizing for Mintlify's features and components. 
           Do not include any language-specific code blocks or any code formatting in the final output. 
-          The output should be plain text formatted for Mintlify without any additional code language indicators.`
+          The output should include appropriate front matter based on the content.`
         },
         {
           role: "user",
-          content: markdown
+          content: markdown // Send markdown without front matter
         }
       ]
-    })
+    });
 
     // Get the converted content
-    const convertedContent = completion.choices[0].message.content
-
-    // Create new front matter
-    const newFrontMatter = {
-      title: frontMatter.title || path.basename(filePath, '.md'),
-      description: frontMatter.description || '',
-      ...frontMatter
-    }
+    const convertedContent = completion.choices[0].message.content;
 
     // Combine front matter and converted content
-    const finalContent = `---\n${yaml.dump(newFrontMatter)}---\n\n${convertedContent}`
+    const finalContent = `${convertedContent}`; // The LLM should generate the front matter
 
     // Determine output path (maintain directory structure but in Mintlify docs folder)
-    const relativePath = path.relative(process.cwd(), filePath)
-    const outputPath = path.join(MINTLIFY_DOCS_PATH, relativePath.replace(/\.md$/, '.mdx'))
+    const relativePath = path.relative(process.cwd(), filePath);
+    const outputPath = path.join(MINTLIFY_DOCS_PATH, relativePath.replace(/\.md$/, '.mdx'));
     
     // Create directories if they don't exist
-    await fs.mkdir(path.dirname(outputPath), { recursive: true })
+    await fs.mkdir(path.dirname(outputPath), { recursive: true });
 
     // Write the converted file
-    await fs.writeFile(outputPath, finalContent)
+    await fs.writeFile(outputPath, finalContent);
 
-    console.log(`✅ Converted ${filePath} to ${outputPath}`)
+    console.log(`✅ Converted ${filePath} to ${outputPath}`);
+
+    // Return the front matter data for mint.json generation
+    return {
+      title: frontMatter.title || path.basename(filePath, '.md'),
+      description: frontMatter.description || '',
+      path: outputPath
+    };
 
   } catch (error) {
-    console.error(`❌ Error converting ${filePath}:`, error)
+    console.error(`❌ Error converting ${filePath}:`, error);
+    return { title: '', description: '', path: filePath }; // Return empty data on error
   }
 }
 
@@ -335,51 +367,93 @@ async function findMarkdownFiles(dir: string): Promise<string[]> {
   return markdownFiles
 }
 
-async function generateNavigation(files: string[]): Promise<any> {
-  // Group files by directory
-  const groups = files.reduce((acc, file) => {
-    // Get directory relative to MINTLIFY_DOCS
-    const dir = path.dirname(path.relative(MINTLIFY_DOCS_PATH, file)).split(path.sep)[0] || 'root'
-    if (!acc[dir]) acc[dir] = []
-    acc[dir].push(file)
-    return acc
-  }, {} as Record<string, string[]>)
-
-  // Create navigation structure
-  return Object.entries(groups).map(([group, groupFiles]) => ({
-    group: group.charAt(0).toUpperCase() + group.slice(1),
-    pages: groupFiles.map(file => path.relative(MINTLIFY_DOCS_PATH, file).replace(/\.(md|mdx)$/, ''))
-  }))
+// Function to delete a directory and its contents
+async function deleteDirectory(dir: string) {
+  try {
+    const files = await fs.readdir(dir);
+    await Promise.all(files.map(async (file) => {
+      const filePath = path.join(dir, file);
+      const stat = await fs.stat(filePath);
+      if (stat.isDirectory()) {
+        await deleteDirectory(filePath); // Recursively delete subdirectories
+      } else {
+        await fs.unlink(filePath); // Delete file
+      }
+    }));
+    await fs.rmdir(dir); // Remove the directory itself
+  } catch (error) {
+    console.error(`❌ Error deleting directory ${dir}:`, error);
+  }
 }
 
 async function main() {
   try {
+    // Delete the existing mintlify folder if it exists
+    const mintlifyDir = path.join(process.cwd(), 'mintlify');
+    if (await fs.access(mintlifyDir).then(() => true).catch(() => false)) {
+      console.log(`Deleting existing mintlify directory: ${mintlifyDir}`);
+      await deleteDirectory(mintlifyDir);
+    }
+
     // Initialize Mintlify directory structure
-    await initializeMintlifyStructure()
+    await initializeMintlifyStructure();
 
     // Find all markdown files
-    const markdownFiles = await findMarkdownFiles(process.cwd())
+    const markdownFiles = await findMarkdownFiles(process.cwd());
 
-    // Convert each file
-    await Promise.all(markdownFiles.map(convertToMintlify))
+    // Convert each file and collect metadata
+    const metadataPromises = markdownFiles.map(convertToMintlify);
+    const metadataArray = await Promise.all(metadataPromises);
 
-    // Generate navigation structure
-    const navigation = await generateNavigation(markdownFiles)
+    // Filter out any empty metadata
+    const validMetadata = metadataArray.filter(meta => meta.title && meta.path);
 
-    // Update mint.json
-    const mintConfigPath = path.join(MINTLIFY_ROOT, 'mint.json')
-    const mintConfig = JSON.parse(await fs.readFile(mintConfigPath, 'utf-8'))
-    mintConfig.navigation = navigation
-    await fs.writeFile(mintConfigPath, JSON.stringify(mintConfig, null, 2))
+    // Prepare data for LLM to generate mint.json
+    const mintJsonData = {
+      files: validMetadata.map(meta => ({
+        path: meta.path,
+        title: meta.title,
+        description: meta.description
+      }))
+    };
 
-    console.log('✨ Conversion complete!')
-    console.log(`📚 Documentation available in ${MINTLIFY_ROOT}`)
-    console.log('To preview your docs, run:')
-    console.log('cd mintlify && mintlify dev')
+    // Use OpenAI to generate mint.json
+    const mintJsonCompletion = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        {
+          role: "system",
+          content: `You are a documentation specialist who generates a mint.json configuration file for Mintlify documentation. 
+          Based on the following file metadata, create a well-structured mint.json file.`
+        },
+        {
+          role: "user",
+          content: JSON.stringify(mintJsonData, null, 2) // Pass the collected metadata
+        }
+      ]
+    });
+
+    // Get the generated mint.json content
+    const generatedMintJson = mintJsonCompletion.choices[0].message.content;
+
+    // Parse the generated content to ensure it's valid JSON
+    let parsedMintJson;
+    try {
+      parsedMintJson = JSON.parse(generatedMintJson);
+    } catch (error) {
+      console.error('❌ Error parsing generated mint.json:', error);
+      return; // Exit if parsing fails
+    }
+
+    // Write the generated mint.json to file
+    const mintConfigPath = path.join(mintlifyDir, 'mint.json');
+    await fs.writeFile(mintConfigPath, JSON.stringify(parsedMintJson, null, 2));
+
+    console.log('✨ mint.json generated successfully!');
 
   } catch (error) {
-    console.error('Error in main process:', error)
+    console.error('Error in main process:', error);
   }
 }
 
-main() 
+main();
