@@ -130,49 +130,8 @@ All pricing information must be accessible through the **dFDA** for patient and 
 - Streamline approval for generics post safety and basic efficacy.
 - Implement abbreviated pathways to reduce time and costs.
 
-#### b) Patent Reform
-- Shorten patent exclusivity for treatments showing safety and efficacy.
-- Prevent "evergreening" without substantial innovation.
-
-#### c) Encouraging Parallel Importation
+#### b) Encouraging Parallel Importation
 - Allow importation of treatments approved abroad meeting U.S. standards to foster competition and reduce costs.
-
-### 4.4 Funding, Grants, and Incentives
-#### a) Tax Credits
-Provide credits to manufacturers pricing treatments competitively and transparently.
-
-#### b) Volume-Based Discounts
-Encourage bulk purchasing to lower costs via economies of scale.
-
-#### c) Efficiency Grants
-Grant investments in technology and processes that reduce production costs without compromising quality.
-
-## Section 5. Insurance Coverage and Cost Transparency
-
-### 5.1 Insurance Options
-Providers may:
-- Include experimental treatments in plans.
-- Use risk-based pricing models.
-- Develop specialized plans for experimental treatments.
-- Allow HSAs/FSAs for treatment costs.
-
-### 5.2 Cost Transparency
-Manufacturers and providers must:
-- Publish clear price lists.
-- Disclose production and development cost bases.
-- Report insurance payments and patient expenses.
-- Compare domestic prices to international markets.
-
-
-
-
-
-
-
-
-
-## Section 7. Severability
-Invalid provisions do not affect the rest of the Act, which remains enforceable.
 
 ## Section 8. Savings Sharing Program
 
@@ -202,16 +161,3 @@ IAB annually assesses savings using the **dFDA** data, healthcare expenditure re
 
 #### b) Reward Calculation
 Rewards are a percentage of verified savings. Specifically, the program incentivizes low-cost treatments by offering a 50% savings sharing reward per patient. This means that for every patient treated, 50% of the cost savings achieved is rewarded to the manufacturer. Lowering the cost of treatments not only increases accessibility and patient uptake but also enhances long-term income for manufacturers through higher volume sales.
-
-
-
-
-
-
-
-
-
-
-
-
-
