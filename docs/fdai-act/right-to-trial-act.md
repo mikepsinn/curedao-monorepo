@@ -57,7 +57,7 @@ Providers may:
 ## Section 3. dFDA
 
 ### 3.1 Establishment
-The **dFDA** shall:
+The dFDA shall:
 - Replace restricted trials with inclusive tracking.
 - Support participation from any location.
 - Enable home-based monitoring.
@@ -73,7 +73,7 @@ Providers must report:
 - Access methods.
 
 ### 3.3 Inclusive Design
-The **dFDA** must support:
+The dFDA must support:
 - Remote data entry and mobile apps.
 - Home monitoring devices and telemedicine integration.
 - Patient-reported outcomes and caregiver input.
@@ -96,7 +96,7 @@ The **dFDA** must support:
 ### 3.1.1 FDAi: Autonomous AI Agent
 
 #### Definition and Purpose
-The **FDAi** is an autonomous AI agent designed to continually collect and aggregate research data for meta-analyses. It will enhance the capabilities of the **dFDA** by providing real-time insights into treatment outcomes and patient experiences.
+The **FDAi** is an autonomous AI agent designed to continually collect and aggregate research data for meta-analyses. It will enhance the capabilities of the dFDA by providing real-time insights into treatment outcomes and patient experiences.
 
 #### Functionality
 - **Data Collection**: FDAi will autonomously gather data from various sources, including clinical trials, patient reports, and existing research studies.
@@ -116,14 +116,9 @@ The **FDAi** is an autonomous AI agent designed to continually collect and aggre
 - **Cross-Border Collaboration:** Foster partnerships among global researchers, manufacturers, and providers.
 
 ### 4.2 Price Transparency and Cost Reduction Measures
-#### a) Mandatory Disclosure
-Manufacturers must disclose:
-- Base production and development costs.
-- Pricing structure with profit margins.
-- Comparative pricing data domestically and internationally.
 
-#### b) Public Access
-All pricing information must be accessible through the **dFDA** for patient and provider comparison.
+#### a) Public Access
+All pricing information must be accessible through the dFDA for patient and provider comparison.
 
 ### 4.3 Enhancing Competition
 #### a) Facilitating Generic Entry
@@ -148,16 +143,16 @@ Incentivize pharmaceutical companies to develop treatments that prevent disabili
 Treatments must:
 1. **Approval and Registration:**
    - FDA-approved under this Act.
-   - Registered with the **dFDA**.
+   - Registered with the dFDA.
 2. **Demonstrated Impact:**
    - Evidence of preventing disability or reducing costs.
    - Address serious or life-threatening conditions with public health significance.
 3. **Data Reporting:**
-   - Maintain ongoing data collection and the **dFDA** reporting.
+   - Maintain ongoing data collection and the dFDA reporting.
 
 ### 8.4 Calculation of Rewards
 #### a) Cost Savings Assessment
-IAB annually assesses savings using the **dFDA** data, healthcare expenditure reports, and other sources, including hospitalizations, long-term care, and disability benefits.
+IAB annually assesses savings using the dFDA data, healthcare expenditure reports, and other sources, including hospitalizations, long-term care, and disability benefits.
 
 #### b) Reward Calculation
 Rewards are a percentage of verified savings. Specifically, the program incentivizes low-cost treatments by offering a 50% savings sharing reward per patient. This means that for every patient treated, 50% of the cost savings achieved is rewarded to the manufacturer. Lowering the cost of treatments not only increases accessibility and patient uptake but also enhances long-term income for manufacturers through higher volume sales.
