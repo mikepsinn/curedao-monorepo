@@ -1,9 +1,9 @@
-# Right to Trial Act of 2024
+# Right to Trial Act
 
 ## Section 1. Short Title and Findings
 
 ### 1.1 Title
-Cited as the "Right to Trial Act of 2024."
+Cited as the "Right to Trial Act."
 
 ### 1.2 Core Findings
 1. **Current System Failures**
