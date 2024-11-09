@@ -8,6 +8,8 @@ Cited as the "Right to Trial Act of 2024."
 ### 1.2 Core Findings
 1. **Current System Failures**
    - FDA approval process delays access to life-saving treatments by 7-12 years on average.
+   - Only 3% of patients qualify for traditional clinical trials due to strict eligibility criteria, leaving most without access to new treatments.
+   - Real-world outcome data (actual patient results) is collected for less than 10% of approved drugs.
    - 97% of patients are excluded from clinical trials due to strict eligibility criteria.
    - Geographic restrictions force patients to travel hundreds of miles to trial sites.
    - $2.6B average cost of drug development drives 10-100x markup in consumer prices.
@@ -17,7 +19,7 @@ Cited as the "Right to Trial Act of 2024."
    - Only 5% of healthcare spending goes to preventive care despite 3x return on investment (meaning every $1 spent saves $3 in future costs).
    - Less than 10% of approved drugs have comprehensive real-world outcome data.
 2. **Solution Framework**
-   - Enable all patients to participate in decentralized trials from home, hospitals, or any care setting.
+   - Enable all patients to participate in decentralized trials (studies conducted remotely from patients' locations) from home, hospitals, or any care setting.
    - Transform clinical trials into transparent, real-world data collection that includes all willing patients.
    - Guarantee treatment access across geographic locations through telemedicine and home delivery.
    - Create financial incentives for treatments that improve outcomes and reduce healthcare costs.
@@ -30,7 +32,7 @@ Cited as the "Right to Trial Act of 2024."
 
 ### 2.1 Universal Right to Treatment
 Patients may access treatments that:
-- Completed Phase 1 safety testing.
+- Completed Phase 1 safety testing (initial human trials focusing on safety and side effects).
 - Have published safety data.
 - Are registered for outcome tracking.
 - Feature accurate labeling and manufacturing standards.
@@ -101,7 +103,7 @@ The **FDAi** (Food and Drug Administration Intelligence) is an autonomous AI age
 #### Functionality
 - **Data Collection**: FDAi will autonomously gather data from various sources, including clinical trials, patient reports, and existing research studies.
 - **Patient Interaction**: FDAi can contact patients to collect data on symptoms, treatments, dietary habits, and other relevant health information through secure communication channels.
-- **Meta-Analyses**: The AI will analyze aggregated data to identify trends, efficacy, and safety profiles of treatments, contributing to evidence-based decision-making.
+- **Meta-Analyses**: The AI will combine results from all available studies and data sources to identify trends, effectiveness, and safety profiles of treatments, contributing to evidence-based decision-making.
 
 #### Benefits
 - **Improved Data Accuracy**: Continuous data collection minimizes gaps and biases in research data.
@@ -122,11 +124,11 @@ All pricing information must be accessible through the dFDA for patient and prov
 
 ### 4.3 Enhancing Competition
 #### a) Facilitating Generic Entry
-- Streamline approval for generics post safety and basic efficacy.
+- Streamline approval for generic drugs (identical copies of brand-name medications) after demonstrating safety and basic effectiveness.
 - Implement abbreviated pathways to reduce time and costs.
 
-#### b) Encouraging Parallel Importation
-- Allow importation of treatments approved abroad meeting U.S. standards to foster competition and reduce costs.
+#### b) Allow Importation of Low-Cost Treatments
+- Allow importation of treatments already approved in other countries (parallel importation) that meet U.S. standards to increase competition and reduce costs.
 
 ## Section 8. Savings Sharing Program
 
