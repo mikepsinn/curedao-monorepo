@@ -130,62 +130,62 @@ Encourage bulk purchasing to lower costs via economies of scale.
 #### c) Efficiency Grants
 Grant investments in technology and processes that reduce production costs without compromising quality.
 
-## Section 6. Insurance Coverage and Cost Transparency
+## Section 5. Insurance Coverage and Cost Transparency
 
-### 6.1 Insurance Options
+### 5.1 Insurance Options
 Providers may:
 - Include experimental treatments in plans.
 - Use risk-based pricing models.
 - Develop specialized plans for experimental treatments.
 - Allow HSAs/FSAs for treatment costs.
 
-### 6.2 Cost Transparency
+### 5.2 Cost Transparency
 Manufacturers and providers must:
 - Publish clear price lists.
 - Disclose production and development cost bases.
 - Report insurance payments and patient expenses.
 - Compare domestic prices to international markets.
 
-## Section 7. Implementation Strategy and Recommendations
+## Section 6. Implementation Strategy and Recommendations
 
-### 7.1 Establishing Oversight Bodies
+### 6.1 Establishing Oversight Bodies
 - **Independent Assessment Body (IAB):** Experts in healthcare economics, public health, pharmaceutical development, and data analysis.
 - **Independent Oversight Committee (IOC):** Representatives from patient groups, providers, and industry experts.
 
-### 7.2 Defining Metrics and Funding
+### 6.2 Defining Metrics and Funding
 - Develop standardized metrics for cost savings.
-- Authorize and allocate funds for HIRF and RFSF through congressional appropriations.
+- Authorize and allocate funds for HSSR and RFSF through congressional appropriations.
 - Regularly assess and adjust FDA’s funding needs.
 
-### 7.3 Transparency and Accountability
+### 6.3 Transparency and Accountability
 - Mandate annual reports from FDA and IAB.
 - Establish oversight committees and audit processes.
 - Ensure stakeholder engagement and continuous feedback.
 
-### 7.4 Long-Term Sustainability
-- Design HIRF and RFSF for adaptability to future changes.
+### 6.4 Long-Term Sustainability
+- Design HSSR and RFSF for adaptability to future changes.
 - Maintain incentives for ongoing innovation alongside elimination of user fees.
 
-### 7.5 Final Recommendations
+### 6.5 Final Recommendations
 - Integrate Savings Sharing Program seamlessly.
 - Engage stakeholders early and pilot programs.
 - Garner bipartisan support and maintain flexibility for future advancements.
 
-## Section 8. Severability
+## Section 7. Severability
 Invalid provisions do not affect the rest of the Act, which remains enforceable.
 
-## Section 9. Savings Sharing Program
+## Section 8. Savings Sharing Program
 
-### 9.1 Purpose
+### 8.1 Purpose
 Incentivize pharmaceutical companies to develop treatments that prevent disability and reduce government medical costs, promoting public health and economic efficiency.
 
-### 9.2 Definitions
+### 8.2 Definitions
 1. **Savings Sharing Program:** Rewards for verified cost savings from treatments preventing disability and reducing expenditures.
 2. **Cost Savings:** Reduced government medical expenses from decreased hospitalizations, long-term care needs, and disability-related costs.
 3. **Evaluation Period:** Typically five years post-approval to assess public health and cost impacts.
 4. **Independent Assessment Body (IAB):** Evaluates treatment performance and calculates cost savings.
 
-### 9.3 Eligibility Criteria
+### 8.3 Eligibility Criteria
 Treatments must:
 1. **Approval and Registration:**
    - FDA-approved under this Act.
@@ -196,17 +196,17 @@ Treatments must:
 3. **Data Reporting:**
    - Maintain ongoing data collection and TOD reporting.
 
-### 9.4 Calculation of Rewards
+### 8.4 Calculation of Rewards
 #### a) Cost Savings Assessment
 IAB annually assesses savings using TOD data, healthcare expenditure reports, and other sources, including hospitalizations, long-term care, and disability benefits.
 
 #### b) Reward Calculation
-Rewards are a percentage of verified savings, determined via competitive bidding, capped at 20% of total verified savings during the Evaluation Period.
+Rewards are a percentage of verified savings, determined via competitive bidding, capped at 20% of total verified savings during the Evaluation Period. Specifically, the program incentivizes low-cost treatments by offering a 50% savings sharing reward per patient. This means that for every patient treated, 50% of the cost savings achieved is rewarded to the manufacturer. Lowering the cost of treatments not only increases accessibility and patient uptake but also enhances long-term income for manufacturers through higher volume sales.
 
 #### c) Cap on Total Rewards
 Annual allocation capped by Congress, adjusted for inflation and healthcare cost trends.
 
-### 9.5 Award Distribution
+### 8.5 Award Distribution
 #### a) Timing
 Annual distribution post Evaluation Period completion.
 
@@ -216,7 +216,7 @@ Companies submit detailed impact reports; IAB verifies data and calculates rewar
 #### c) Public Disclosure
 Rewards and corresponding treatments publicly disclosed for transparency.
 
-### 9.6 Oversight and Compliance
+### 8.6 Oversight and Compliance
 #### a) Independent Oversight
 IOC monitors reward process integrity, ensuring unbiased assessments and preventing conflicts of interest.
 
@@ -226,14 +226,14 @@ Regular audits verify cost savings calculations and reward allocations.
 #### c) Penalties for Misrepresentation
 Disqualification, fines, and legal action for data falsification or misrepresentation of treatment impacts.
 
-### 9.7 Funding for the Savings Sharing Program
+### 8.7 Funding for the Savings Sharing Program
 #### a) Source of Funds
-Funded through the **Healthcare Innovation Reward Fund (HIRF)** via congressional appropriation.
+Funded through the **Healthcare Savings Sharing Reward Fund (HSSR)** via congressional appropriation.
 
 #### b) Allocation
-HIRF funds exclusively for rewards, ensuring direct incentives for cost-saving treatments.
+HSSR funds exclusively for rewards, ensuring direct incentives for cost-saving treatments.
 
-### 9.8 Reporting and Transparency
+### 8.8 Reporting and Transparency
 #### a) Annual Reports
 IAB and IOC publish reports on rewards, awarded treatments, and associated savings.
 
@@ -246,10 +246,10 @@ Solicit feedback from providers, patients, and stakeholders to improve the progr
 2. **Section 2:** Defines universal patient rights and provider access, ensuring treatment availability and choice.
 3. **Section 3:** Creates the Treatment Outcomes Database for comprehensive, real-world data collection and public access.
 4. **Section 4:** Enhances global access and competition through international cooperation and transparent pricing.
-5. **Section 6:** Expands insurance coverage for experimental treatments and mandates cost transparency.
-6. **Section 7:** Outlines implementation strategies, including oversight bodies, funding, and stakeholder engagement.
-7. **Section 8:** Maintains Act enforceability despite invalid provisions.
-8. **Section 9:** Introduces the Savings Sharing Program to reward cost-saving treatments, ensuring economic and public health benefits.
+5. **Section 5:** Expands insurance coverage for experimental treatments and mandates cost transparency.
+6. **Section 6:** Outlines implementation strategies, including oversight bodies, funding, and stakeholder engagement.
+7. **Section 7:** Maintains Act enforceability despite invalid provisions.
+8. **Section 8:** Introduces the Savings Sharing Program to reward cost-saving treatments, ensuring economic and public health benefits.
 
 ## Key Benefits
 1. **Reduced Financial Barriers:** Eliminates regulatory user fees, lowering costs for manufacturers.
@@ -264,15 +264,15 @@ Solicit feedback from providers, patients, and stakeholders to improve the progr
 ## Implementation Considerations
 1. **Establish IAB and IOC:** Comprise experts and diverse stakeholders to ensure unbiased assessments and oversight.
 2. **Define Cost Savings Metrics:** Standardize methodologies for consistent and reliable reward calculations.
-3. **Ensure Funding for HIRF and RFSF:** Secure adequate and consistent funding through congressional appropriations.
+3. **Ensure Funding for HSSR and RFSF:** Secure adequate and consistent funding through congressional appropriations.
 4. **Monitor FDA Funding Needs:** Regularly assess and adjust the RFSF to meet evolving regulatory requirements.
 5. **Maintain Transparency:** Require annual reports and establish oversight committees to ensure fund integrity.
 6. **Engage Stakeholders:** Collaborate with manufacturers, providers, and patient groups for effective implementation.
 7. **Ensure Sustainability:** Design funds and incentives to adapt to future pharmaceutical and healthcare changes.
 
 ## Final Recommendations
-1. **Seamlessly Integrate Section 9:** Harmonize the Savings Sharing Program with existing Act sections.
+1. **Seamlessly Integrate Section 8:** Harmonize the Savings Sharing Program with existing Act sections.
 2. **Early Stakeholder Engagement:** Involve key groups in developing and refining the program for broad support.
 3. **Implement Pilot Programs:** Test the Savings Sharing Program's effectiveness before full-scale deployment.
 4. **Secure Legislative Support:** Highlight mutual benefits to garner bipartisan backing.
-5. **Design for Flexibility:** Ensure the Savings Sharing Program adapts to future medical and economic advancements.
+5. **Design for Flexibility:** Ensure the Savings Sharing Program adapts to future medical and economic advancements. 
