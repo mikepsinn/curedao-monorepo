@@ -23,6 +23,8 @@ Cited as the "Right to Trial Act of 2024."
    - Reward outcomes and cost reductions.
    - Learn from all patient experiences.
    - Modernize FDA's role.
+3. **Definition of dFDA**
+   - The **Decentralized FDA (dFDA)** is established to automate decentralized clinical research, store and analyze data, and publish aggregated and anonymized outcome labels quantifying all positive and negative effects of foods and drugs.
 
 ## Section 2. Patient and Provider Access Rights
 
@@ -52,10 +54,10 @@ Providers may:
 - Deliver home-based care and use telemedicine.
 - Monitor remotely and operate across state lines.
 
-## Section 3. Treatment Outcomes Database (TOD)
+## Section 3. dFDA
 
 ### 3.1 Establishment
-TOD shall:
+The **dFDA** shall:
 - Replace restricted trials with inclusive tracking.
 - Support participation from any location.
 - Enable home-based monitoring.
@@ -71,7 +73,7 @@ Providers must report:
 - Access methods.
 
 ### 3.3 Inclusive Design
-TOD must support:
+The **dFDA** must support:
 - Remote data entry and mobile apps.
 - Home monitoring devices and telemedicine integration.
 - Patient-reported outcomes and caregiver input.
@@ -91,6 +93,21 @@ TOD must support:
 - Local data storage and distributed systems.
 - End-to-end encryption and user control.
 
+### 3.1.1 FDAi: Autonomous AI Agent
+
+#### Definition and Purpose
+The **FDAi** is an autonomous AI agent designed to continually collect and aggregate research data for meta-analyses. It will enhance the capabilities of the **dFDA** by providing real-time insights into treatment outcomes and patient experiences.
+
+#### Functionality
+- **Data Collection**: FDAi will autonomously gather data from various sources, including clinical trials, patient reports, and existing research studies.
+- **Patient Interaction**: FDAi can contact patients to collect data on symptoms, treatments, dietary habits, and other relevant health information through secure communication channels.
+- **Meta-Analyses**: The AI will analyze aggregated data to identify trends, efficacy, and safety profiles of treatments, contributing to evidence-based decision-making.
+
+#### Benefits
+- **Improved Data Accuracy**: Continuous data collection minimizes gaps and biases in research data.
+- **Enhanced Patient Engagement**: By directly contacting patients, FDAi fosters a more active role in their health management.
+- **Real-Time Insights**: The ability to analyze data in real-time allows for quicker adjustments to treatment protocols and better patient outcomes.
+
 ## Section 4. Cost and Price Transparency
 
 ### 4.1 International Cooperation
@@ -106,7 +123,7 @@ Manufacturers must disclose:
 - Comparative pricing data domestically and internationally.
 
 #### b) Public Access
-All pricing information must be accessible through TOD for patient and provider comparison.
+All pricing information must be accessible through the **dFDA** for patient and provider comparison.
 
 ### 4.3 Enhancing Competition
 #### a) Facilitating Generic Entry
@@ -154,7 +171,7 @@ Manufacturers and providers must:
 
 ### 6.2 Defining Metrics and Funding
 - Develop standardized metrics for cost savings.
-- Authorize and allocate funds for HSSR and RFSF through congressional appropriations.
+- Authorize and allocate funds for HSSR and the **dFDA** through congressional appropriations.
 - Regularly assess and adjust FDA’s funding needs.
 
 ### 6.3 Transparency and Accountability
@@ -163,7 +180,7 @@ Manufacturers and providers must:
 - Ensure stakeholder engagement and continuous feedback.
 
 ### 6.4 Long-Term Sustainability
-- Design HSSR and RFSF for adaptability to future changes.
+- Design HSSR and the **dFDA** for adaptability to future changes.
 - Maintain incentives for ongoing innovation alongside elimination of user fees.
 
 ### 6.5 Final Recommendations
@@ -189,16 +206,16 @@ Incentivize pharmaceutical companies to develop treatments that prevent disabili
 Treatments must:
 1. **Approval and Registration:**
    - FDA-approved under this Act.
-   - Registered with TOD.
+   - Registered with the **dFDA**.
 2. **Demonstrated Impact:**
    - Evidence of preventing disability or reducing costs.
    - Address serious or life-threatening conditions with public health significance.
 3. **Data Reporting:**
-   - Maintain ongoing data collection and TOD reporting.
+   - Maintain ongoing data collection and the **dFDA** reporting.
 
 ### 8.4 Calculation of Rewards
 #### a) Cost Savings Assessment
-IAB annually assesses savings using TOD data, healthcare expenditure reports, and other sources, including hospitalizations, long-term care, and disability benefits.
+IAB annually assesses savings using the **dFDA** data, healthcare expenditure reports, and other sources, including hospitalizations, long-term care, and disability benefits.
 
 #### b) Reward Calculation
 Rewards are a percentage of verified savings, determined via competitive bidding, capped at 20% of total verified savings during the Evaluation Period. Specifically, the program incentivizes low-cost treatments by offering a 50% savings sharing reward per patient. This means that for every patient treated, 50% of the cost savings achieved is rewarded to the manufacturer. Lowering the cost of treatments not only increases accessibility and patient uptake but also enhances long-term income for manufacturers through higher volume sales.
@@ -244,7 +261,7 @@ Solicit feedback from providers, patients, and stakeholders to improve the progr
 
 1. **Section 1:** Establishes the Act's title and core findings, highlighting system failures and proposed solutions.
 2. **Section 2:** Defines universal patient rights and provider access, ensuring treatment availability and choice.
-3. **Section 3:** Creates the Treatment Outcomes Database for comprehensive, real-world data collection and public access.
+3. **Section 3:** Creates the **dFDA** for comprehensive, real-world data collection and public access.
 4. **Section 4:** Enhances global access and competition through international cooperation and transparent pricing.
 5. **Section 5:** Expands insurance coverage for experimental treatments and mandates cost transparency.
 6. **Section 6:** Outlines implementation strategies, including oversight bodies, funding, and stakeholder engagement.
@@ -254,7 +271,7 @@ Solicit feedback from providers, patients, and stakeholders to improve the progr
 ## Key Benefits
 1. **Reduced Financial Barriers:** Eliminates regulatory user fees, lowering costs for manufacturers.
 2. **Increased Accessibility:** Broadens patient access to experimental treatments, improving health outcomes.
-3. **Enhanced Transparency:** TOD ensures continuous data collection and public access, fostering informed decisions.
+3. **Enhanced Transparency:** **dFDA** ensures continuous data collection and public access, fostering informed decisions.
 4. **Promoted Competition:** Transparent pricing and generic facilitation lower treatment costs.
 5. **Sustained Oversight:** FDA Regulatory Support Fund maintains safety oversight without manufacturer fees.
 6. **Balanced Framework:** Maintains safety and efficacy while promoting innovation and access.
@@ -264,7 +281,7 @@ Solicit feedback from providers, patients, and stakeholders to improve the progr
 ## Implementation Considerations
 1. **Establish IAB and IOC:** Comprise experts and diverse stakeholders to ensure unbiased assessments and oversight.
 2. **Define Cost Savings Metrics:** Standardize methodologies for consistent and reliable reward calculations.
-3. **Ensure Funding for HSSR and RFSF:** Secure adequate and consistent funding through congressional appropriations.
+3. **Ensure Funding for HSSR and dFDA:** Secure adequate and consistent funding through congressional appropriations.
 4. **Monitor FDA Funding Needs:** Regularly assess and adjust the RFSF to meet evolving regulatory requirements.
 5. **Maintain Transparency:** Require annual reports and establish oversight committees to ensure fund integrity.
 6. **Engage Stakeholders:** Collaborate with manufacturers, providers, and patient groups for effective implementation.
