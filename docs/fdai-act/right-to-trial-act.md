@@ -14,7 +14,7 @@ Cited as the "Right to Trial Act of 2024."
    - Terminal patients wait 4+ years for breakthrough therapy approvals.
    - Treatments available in Europe/Asia take 3-5 additional years for US approval.
    - Companies invest 80% of R&D in drugs costing >$100k/year vs. affordable alternatives.
-   - Only 5% of healthcare spending goes to preventive care despite 3x return on investment.
+   - Only 5% of healthcare spending goes to preventive care despite 3x return on investment (meaning every $1 spent saves $3 in future costs).
    - Less than 10% of approved drugs have comprehensive real-world outcome data.
 2. **Solution Framework**
    - Enable all patients to participate in decentralized trials from home, hospitals, or any care setting.
@@ -96,7 +96,7 @@ The dFDA must support:
 ### 3.1.1 FDAi: Autonomous AI Agent
 
 #### Definition and Purpose
-The **FDAi** is an autonomous AI agent designed to continually collect and aggregate research data for meta-analyses. It will enhance the capabilities of the dFDA by providing real-time insights into treatment outcomes and patient experiences.
+The **FDAi** (Food and Drug Administration Intelligence) is an autonomous AI agent designed to continually collect and analyze healthcare research data. It will enhance the capabilities of the dFDA (Decentralized Food and Drug Administration) by providing real-time insights into treatment outcomes and patient experiences.
 
 #### Functionality
 - **Data Collection**: FDAi will autonomously gather data from various sources, including clinical trials, patient reports, and existing research studies.
@@ -134,10 +134,13 @@ All pricing information must be accessible through the dFDA for patient and prov
 Incentivize pharmaceutical companies to develop treatments that prevent disability and reduce government medical costs, promoting public health and economic efficiency.
 
 ### 8.2 Definitions
-1. **Savings Sharing Program:** Rewards for verified cost savings from treatments preventing disability and reducing expenditures.
-2. **Cost Savings:** Reduced government medical expenses from decreased hospitalizations, long-term care needs, and disability-related costs.
-3. **Evaluation Period:** Typically five years post-approval to assess public health and cost impacts.
-4. **Independent Assessment Body (IAB):** Evaluates treatment performance and calculates cost savings.
+1. **Savings Sharing Program:** A financial incentive system that rewards pharmaceutical companies for developing treatments that prevent disability and reduce government medical costs.
+2. **Cost Savings:** Measurable reductions in government medical expenses, including:
+   - Fewer hospital stays
+   - Reduced long-term care needs
+   - Lower disability-related costs
+3. **Evaluation Period:** A five-year monitoring period after treatment approval to measure its impact on public health and costs.
+4. **Independent Assessment Body (IAB):** An external organization that evaluates how well treatments work and calculates their cost savings to the healthcare system.
 
 ### 8.3 Eligibility Criteria
 Treatments must:
